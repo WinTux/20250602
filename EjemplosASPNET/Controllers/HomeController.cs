@@ -22,6 +22,10 @@ namespace EjemplosASPNET.Controllers
         {
             return View();
         }
+        [NonAction] // Indica que este método no es una acción de controlador
+        public String Saludar() { 
+            return "Hola, ASP.NET Core! me llamo Pepe";
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
