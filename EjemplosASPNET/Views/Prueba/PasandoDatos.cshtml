@@ -1,0 +1,42 @@
+﻿
+@if (ViewBag.fechaNacimiento == null)
+{
+    <p>No se ha proporcionado información de la persona.</p>
+}
+
+else { 
+    <div>
+        Edad: @ViewBag.edad
+        <br>
+        Nombre completo: @ViewBag.nombre
+        <br>
+        Es casado: @ViewBag.casado
+        <br>
+        Peso: @ViewBag.peso
+        <br>
+        Fecha de nacimiento: @ViewBag.fechaNacimiento.ToString("dd/MM/yyyy")
+        <br>
+
+    </div>
+}
+
+<!-- Ejemplo de cómo pasar datos desde el controlador a la vista usando ViewBag -->
+
+<h3>Datos del producto</h3>
+@if (ViewBag.producto == null)
+{
+    <p>No se ha proporcionado información del producto.</p>
+}
+else
+{
+    <div>
+    Nombre del producto: @ViewBag.producto.Nombre<br>
+    Precio del producto: @ViewBag.producto.Precio
+    <br>
+    Código del producto: @ViewBag.producto.Id
+    <br>
+    Cantidad del producto: @ViewBag.producto.Cantidad
+    <br>
+    Foto del producto: @ViewBag.producto.Foto
+</div>
+}
