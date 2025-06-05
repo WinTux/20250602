@@ -41,5 +41,17 @@ namespace EjemplosASPNET.Controllers
             ViewBag.producto = producto;
             return View("PasandoDatos");
         }
+        // http://localhost:8080/Prueba/PasandoListaObjetos
+        public IActionResult PasandoListaObjetos()
+        {
+            List<Producto> productos = new List<Producto>
+            {
+                new Producto(1, "Queso de lata", "queso.jpg", 19.0, 12),
+                new Producto(2, "Leche de cabra", "leche.webp", 15.0, 20),
+                new Producto(3, "Pan de ajo", "pan.jpeg", 10.0, 30)
+            };
+            ViewBag.productos = productos;
+            return View("PasandoDatos");
+        }
     }
 }
