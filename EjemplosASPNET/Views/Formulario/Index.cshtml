@@ -4,8 +4,64 @@
     <div class="row">
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
-            <form method="post">
-
+            <h2>Formulario de Registro</h2>
+            <form asp-controller="Formulario" asp-action="Registrar" method="post">
+                <table class="table">
+                    <tr>
+                        <td>Usuario:</td>
+                        <td>
+                            <input asp-for="Cuenta.Usuario" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td>
+                            <input type="password" asp-for="Cuenta.Password">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Descripción:</td>
+                        <td>
+                            <textarea asp-for="Cuenta.Descripcion" rows="5" cols="25"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Disponible:</td>
+                        <td>
+                            <input type="checkbox" asp-for="Cuenta.Disponible">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Género:</td>
+                        <td>
+                            <input type="radio" asp-for="Cuenta.Genero" value="M" /> Masculino
+                            <br>
+                            <input type="radio" asp-for="Cuenta.Genero" value="F" /> Femenino
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lenguajes de programación:</td>
+                        <td>
+                            @for (var i = 0; i < Model.Lenguajes.Count; i++) {
+                                <input type="hidden" asp-for="@Model.Lenguajes[i].Id" />
+                                <input type="hidden" asp-for="@Model.Lenguajes[i].Nombre" />
+                                <input type="checkbox" asp-for="@Model.Lenguajes[i].Tickeado" /> @Model.Lenguajes[i].Nombre <br />
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cargos:</td>
+                        <td>
+                            <select asp-for="Cuenta.Cargo" asp-items="@Model.Cargos"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="hidden" asp-for="Cuenta.Id" />
+                            <input class="btn btn-success" type="submit" value="Registrar" />
+                        </td>
+                </table>
             </form>
         </div>
     </div>
