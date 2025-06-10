@@ -7,7 +7,7 @@ namespace EjemplosASPNET.Controllers
     {
         [Route("i")] // http://localhost:5194/param/i
         [Route("index")] // http://localhost:5194/param/index
-        [Route("~/")] // http://localhost:5194/param/
+        [Route("")] // http://localhost:5194/param/
         public IActionResult Index()
         {
             return View();
