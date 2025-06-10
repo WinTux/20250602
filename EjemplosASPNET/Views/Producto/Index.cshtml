@@ -1,0 +1,53 @@
+﻿@model EjemplosASPNET.Models.Producto
+<h3>Registro de producto</h3>
+<h5>Envío de archivos</h5>
+
+<form asp-controller="producto" asp-action="registrar" method="post" enctype="multipart/form-data">
+    <table class="table">
+        <tr>
+            <td>
+                <label for="id">Id</label>
+            </td>
+            <td>
+                <input type="text" id="id" asp-for="Id" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="nombre">Nombre</label>
+            </td>
+            <td>
+                <input type="text" id="nombre" asp-for="Nombre"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="precio">Precio</label>
+            </td>
+            <td>
+                <input type="text" id="precio" asp-for="Precio"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="cant">Cantidad</label>
+            </td>
+            <td>
+                <input type="number" id="cant" asp-for="Cantidad" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="imagen">Imagen</label>
+            </td>
+            <td>
+                <input type="file" id="imagen" name="imagenes" multiple="multiple"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Registrar" class="btn btn-primary" />
+            </td>
+        </tr>
+    </table>
+</form>
