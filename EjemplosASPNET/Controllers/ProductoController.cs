@@ -19,7 +19,7 @@ namespace EjemplosASPNET.Controllers
             return View("Index", new Producto());
         }
         [HttpPost]
-        public IActionResult Registrar(Producto producto, IFormFile[] imagenes)
+        public async Task<IActionResult> Registrar(Producto producto, IFormFile[] imagenes)
         {
             if (imagenes != null && imagenes.Length > 0)
             {
@@ -33,7 +33,7 @@ namespace EjemplosASPNET.Controllers
                         // Guardar la imagen en la ruta especificada
                         using (var stream = new FileStream(ruta, FileMode.Create))
                         {
-                            imagen.CopyToAsync(stream);
+                            await imagen.CopyToAsync(stream);
                         }
                     }
                 }
