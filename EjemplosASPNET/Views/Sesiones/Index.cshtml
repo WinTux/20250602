@@ -1,0 +1,44 @@
+﻿@using EjemplosASPNET.Herramientas;
+<h3>Manejo de sesiones</h3>
+
+<h5>Los valores de sesión son:</h5>
+<p>Edad: @Context.Session.GetInt32("edad")</p>
+<p>Usuario: @Context.Session.GetString("usuario")</p>
+<h5>El producto en sesión es:</h5>
+<p>Producto: @Context.Session.GetString("productito")</p>
+
+@{
+    Producto producto = ConversorSupremo.JsonToCsharp<Producto>(Context.Session, "productito");
+}
+ID: @producto.Id <br />
+Nombre: @producto.Nombre<br />
+Precio: @producto.Precio<br />
+Cantidad: @producto.Cantidad<br />
+Foto: <img src="~/imagenes/@producto.Foto" width="100px"><br />
+
+<h5>Los productos en la sesión son los siguientes</h5>
+@{
+    List<Producto> productos = ConversorSupremo.JsonToCsharp<List<Producto>>(Context.Session, "productos");
+}
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Foto</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Subtotal</th>
+    </tr>
+    @foreach (var p in productos)
+    {
+        <tr>
+            <td>@p.Id</td>
+            <td>@p.Nombre</td>
+            <td><img src="~/imagenes/@p.Foto" height="100px"></td>
+            <td>@p.Precio</td>
+            <td>@p.Cantidad</td>
+            <td>@(p.Cantidad*p.Precio)</td>
+        </tr>
+    
+    }
+</table>

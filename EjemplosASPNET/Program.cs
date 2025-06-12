@@ -8,6 +8,7 @@ namespace EjemplosASPNET
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSession();
 
             var app = builder.Build();
 
@@ -16,6 +17,8 @@ namespace EjemplosASPNET
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseSession();
             app.UseStaticFiles();
 
             app.UseRouting();
