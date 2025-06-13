@@ -1,0 +1,25 @@
+﻿@using EjemplosASPNET.Models.ParaCarrito
+
+<h3>Productos para la venta</h3>
+<h5>Ejemplo de sesiones para carrito</h5>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Foto</th>
+        <th>Precio</th>
+        <th>Comprar</th>
+    </tr>
+    @foreach (var p in ViewBag.productos)
+    {
+        <tr>
+            <td>@p.Id</td>
+            <td>@p.Nombre</td>
+            <td><img src="~/imagenes/@p.Foto" height="100px"></td>
+            <td>@p.Precio</td>
+            <td><a class="btn btn-success" href="@Url.Action("Agregar", "Carrito", new {id = p.Id})">Agregar al carrito</a></td>
+        </tr>
+
+    }
+</table>
