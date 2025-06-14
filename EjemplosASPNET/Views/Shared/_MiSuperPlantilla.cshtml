@@ -1,0 +1,17 @@
+﻿<!DOCTYPE
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@ViewBag.titulo</title>
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <a href="@Url.Action("Index","Home")">Home</a>
+    <a href="@Url.Action("Index", "minimarket")">Minimarket</a>
+    <a href="@Url.Action("Index", "Formulario")">Formulario</a>
+    <br /><br />
+    @RenderBody()
+    <br />
+    <br />
+    Copyright (C) 2025 - Pepe Inc.
+</body>
+</html>

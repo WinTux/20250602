@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.titulo = "Accerca de";
+    Layout = "~/Views/Shared/_MiSuperPlantilla.cshtml"; // Nombre del layout que se usará para esta vista
+}
+
+<a href="@Url.Action("Acerca1","Layouts")">Acerca 1</a>
+<a href="@Url.Action("Acerca2", "Layouts")">Acerca 2</a>
+
+<br />
+<br />
+@RenderBody()
+
+<br />
+<h5>Sigo en la plantilla anidada de Acerca de</h5>
+
+@section head {
+    <style>
+        body {
+            background-color: tomato;
+        }
+    </style>
+}

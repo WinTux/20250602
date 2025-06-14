@@ -1,0 +1,13 @@
+﻿@*
+    Ejemplo de uso de plantilla cshtml (layouts)
+*@
+@{
+    ViewBag.titulo = "Ejemplo Mi Layout";
+    Layout = "~/Views/Shared/_MiSuperPlantilla.cshtml"; // Nombre del layout que se usará para esta vista
+}
+
+<h1>Ejemplo de Layout</h1>
+<p>Esta es una vista que utiliza un layout personalizado.</p>
+<p>El layout se define en la propiedad <code>Layout</code> de la vista.</p>
+<p>El layout se encuentra en <code>Views/Shared/_MiSuperPlantilla.cshtml</code>.</p>
+<p>El título de la página se establece en <code>ViewBag.titulo</code>.</p>
