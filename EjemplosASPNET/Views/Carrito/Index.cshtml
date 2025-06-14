@@ -1,0 +1,38 @@
+﻿@using EjemplosASPNET.Models.ParaCarrito
+@using EjemplosASPNET.Herramientas;
+<h3>Mi carrito</h3>
+@{
+    List<Item> carrito = ConversorSupremo.JsonToCsharp<List<Item>>(Context.Session, "carrito");
+}
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Foto</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Sub Total</th>
+        <th>Opciones</th>
+    </tr>
+    @foreach (Item it in carrito)
+    {
+        <tr>
+            <td>@it.Producto.Id</td>
+            <td>@it.Producto.Nombre</td>
+            <td><img src="~/imagenes/@it.Producto.Foto" width="100px" height="100px"/></td>
+            <td>@it.Producto.Precio</td>
+            <td>@it.Cantidad</td>
+            <td>@(it.Cantidad* it.Producto.Precio)</td>
+            <td>
+                <a class="btn btn-danger" href="@Url.Action("Eliminar", "Carrito", new { id = it.Producto.Id })">Eliminar</a>
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="5" align="right">Total:</td>
+        <td>@carrito.Sum(i => i.Cantidad * i.Producto.Precio)</td>
+        <td></td>
+    </tr>
+</table>
+<br />
+<a class="btn btn-primary" href="@Url.Action("Index", "minimarket")">Seguir comprando</a>

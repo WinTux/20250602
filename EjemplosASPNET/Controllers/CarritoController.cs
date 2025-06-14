@@ -21,7 +21,7 @@ namespace EjemplosASPNET.Controllers
                 ConversorSupremo.CsharpToJson(HttpContext.Session, carrito, "carrito");
             }
             else { // Ya existe el carrito en sesión:
-                // ¿agregará un producto nuevo o agregará un poroducto que ya existe?
+                // ¿agregará un producto nuevo o agregará un producto que ya existe?
                 List<Item> carrito = ConversorSupremo.JsonToCsharp<List<Item>>(HttpContext.Session, "carrito");
                 int indice = existe(id); // si no existe es -1
                 if (indice != -1)
@@ -30,7 +30,7 @@ namespace EjemplosASPNET.Controllers
                     carrito.Add(new Item { Producto = productoModel.getById(id), Cantidad = 1 });
                 ConversorSupremo.CsharpToJson(HttpContext.Session, carrito, "carrito");
             }
-                return View();
+            return RedirectToAction("Index");
         }
         [NonAction]
         private int existe(string id)
