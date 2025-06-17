@@ -12,7 +12,7 @@ namespace EjemplosASPNET
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddSession();
-            builder.Services.AddDbContext<ProductoDbContext>(op => op.UseLazyLoadingProxies().UseMySQL(builder.Configuration.GetConnectionString("Central")));
+            builder.Services.AddDbContext<ProductoDbContext>(op => op.UseLazyLoadingProxies().UseMySql(builder.Configuration.GetConnectionString("Central"), new MySqlServerVersion(new Version(9, 0, 0))));
 
             var app = builder.Build();
 
