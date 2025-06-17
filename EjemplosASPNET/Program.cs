@@ -1,3 +1,6 @@
+using EjemplosASPNET.Conexion;
+using Microsoft.EntityFrameworkCore;
+
 namespace EjemplosASPNET
 {
     public class Program
@@ -9,6 +12,7 @@ namespace EjemplosASPNET
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddSession();
+            builder.Services.AddDbContext<ProductoDbContext>(op => op.UseLazyLoadingProxies().UseMySQL(builder.Configuration.GetConnectionString("Central")));
 
             var app = builder.Build();
 
