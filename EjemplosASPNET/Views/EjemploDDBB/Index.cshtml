@@ -10,6 +10,7 @@
             <th>Precio</th>
             <th>Cantidad</th>
             <th>Foto</th>
+            <th>Acciones</th>
         </tr>
         @foreach (var p in ViewBag.productos)
         {
@@ -19,6 +20,9 @@
                 <td>@p.Precio</td>
                 <td>@p.Cantidad</td>
                 <td><img src="~/imagenes/@p.Foto" width="150" height="150"></td>
+                <td>
+                    <a class="btn btn-alert" href="@Url.Action("Editar", "EjemploDDBB", new { id = p.Id })" >Modificar</a>
+                </td>
             </tr>
         }
     </table>

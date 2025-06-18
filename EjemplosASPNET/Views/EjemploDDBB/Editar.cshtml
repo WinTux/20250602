@@ -1,0 +1,31 @@
+﻿@model EjemplosASPNET.Models.Producto
+
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+
+            <h3>Editar Producto</h3>
+            <form asp-action="Editar2" asp-controller="EjemploDDBB" method="post">
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="Foto" />
+                <div class="mb-3">
+                    <label asp-for="Nombre" class="form-label"></label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Precio" class="form-label"></label>
+                    <input asp-for="Precio" class="form-control" />
+                    <span asp-validation-for="Precio" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Cantidad" class="form-label"></label>
+                    <input asp-for="Cantidad" class="form-control" />
+                    <span asp-validation-for="Cantidad" class="text-danger"></span>
+                </div>
+                <input type="submit" class="btn btn-primary">Guardar cambios</input>
+            </form>
+        </div>
+    </div>
+    </div>

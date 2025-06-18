@@ -1,4 +1,5 @@
-﻿using EjemplosASPNET.Models;
+﻿using EjemplosASPNET.Conexion;
+using EjemplosASPNET.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EjemplosASPNET.Controllers
@@ -7,10 +8,12 @@ namespace EjemplosASPNET.Controllers
     public class ProductoController : Controller
     {
         private IWebHostEnvironment webHostEnvironment;
+        private ProductoDbContext context;
 
-        public ProductoController(IWebHostEnvironment webHostEnvironment)
+        public ProductoController(IWebHostEnvironment webHostEnvironment, ProductoDbContext context)
         {
             this.webHostEnvironment = webHostEnvironment;
+            this.context = context;
         }
         [Route("")] // https://localhost:5001/producto
         [Route("index")] // https://localhost:5001/producto/index
@@ -40,6 +43,10 @@ namespace EjemplosASPNET.Controllers
                 producto.Foto = imagenes[0].FileName; // Asignar el nombre de la imagen al producto
                 ViewBag.prod = producto; // Pasar el producto a la vista
                 ViewBag.fotos = imagenes;
+
+                // Guardar el producto en la base de datos
+                context.Productos.Add(producto);
+                await context.SaveChangesAsync();
             }
             else
                 return Content("Imagenes necesarias; vuelva a interlo.");
