@@ -22,6 +22,7 @@
                 <td><img src="~/imagenes/@p.Foto" width="150" height="150"></td>
                 <td>
                     <a class="btn btn-alert" href="@Url.Action("Editar", "EjemploDDBB", new { id = p.Id })" >Modificar</a>
+                    <a class="btn btn-alert" href="@Url.Action("Eliminar", "EjemploDDBB", new { id = p.Id })">Eliminar</a>
                 </td>
             </tr>
         }

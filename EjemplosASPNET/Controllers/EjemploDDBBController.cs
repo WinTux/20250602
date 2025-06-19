@@ -46,5 +46,18 @@ namespace EjemplosASPNET.Controllers
             dbContext.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        [Route("Eliminar/{id}")]
+        public IActionResult eliminar(int id)
+        {
+            var producto = dbContext.Productos.FirstOrDefault(p => p.Id == id);
+            if (producto == null)
+            {
+                return NotFound("Producto no encontrado");
+            }
+            dbContext.Productos.Remove(producto);
+            dbContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
