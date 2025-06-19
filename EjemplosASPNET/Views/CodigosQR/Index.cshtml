@@ -1,0 +1,6 @@
+﻿<h3>Ejemplo de QR</h3>
+
+<form method="post" asp-action="Generar" asp-controller="CodigosQR">
+    <input type="text" placeholder="Ingrese su texto" name="texto" value="@ViewBag.texto"/>
+    <input type="submit" value="Generar QR" />
+</form>
