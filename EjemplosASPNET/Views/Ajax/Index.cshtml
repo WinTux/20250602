@@ -1,0 +1,90 @@
+﻿<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#buttonEjemplo1').click(function(){
+            $.ajax({
+                type: 'GET',
+                url: '/ajax/ejemplo1',
+                success: function(data) {
+                    $('#resultado1').html(data);
+                }
+            });
+        });
+        $('#buttonEjemplo2').click(function(){
+            let nom = $('#inputnombre').val();
+            $.ajax({
+                type: 'GET',
+                url: '/ajax/ejemplo2/' + nom,
+                success: function(data) {
+                    $('#resultado2').html(data);
+                }
+            });
+        });
+        $('#buttonEjemplo3').click(function(){
+            $.ajax({
+                type: 'GET',
+                url: '/ajax/ejemplo3',
+                success: function(data) {
+                    let s = 'ID: ' + data.id;
+                    s += '<br>Nombre: ' + data.nombre;
+                    s += '<br>Precio: ' + data.precio;
+                    s += '<br>Foto: ' + data.foto;
+                    s += '<br>Cantidad: ' + data.cantidad;
+                    $('#resultado3').html(s);
+                }
+            });
+        });
+        $('#buttonEjemplo4').click(function(){
+            $.ajax({
+                type: 'GET',
+                url: '/ajax/ejemplo4',
+                success: function(data) {
+                    let s = '';
+                    for(var i = 0; i < data.length; i++){
+                        s += '<br>ID: ' + data[i].id;
+                        s += '<br>Nombre: ' + data[i].nombre;
+                        s += '<br>Precio: ' + data[i].precio;
+                        s += '<br>Foto: ' + data[i].foto;
+                        s += '<br>Cantidad: ' + data[i].cantidad;
+                        s += '<br>*********************************';
+                    }
+                    $('#resultado4').html(s);
+                }
+            });
+        });
+    });
+
+</script>
+
+<fieldset>
+    <legend>Ejemplo 1</legend>
+
+    <input type="button" id="buttonEjemplo1" value="Ejecutar ejemplo 1">
+    <br />
+    <span id="resultado1"></span>
+</fieldset>
+
+
+<fieldset>
+    <legend>Ejemplo 2</legend>
+    Ingrese su nombre:
+    <input type="text" id="inputnombre" />
+    <input type="button" id="buttonEjemplo2" value="Ejecutar ejemplo 2">
+    <br />
+    <span id="resultado2"></span>
+</fieldset>
+
+
+<fieldset>
+    <legend>Ejemplo 3</legend>
+    <input type="button" id="buttonEjemplo3" value="Ejecutar ejemplo 3">
+    <br />
+    <span id="resultado3"></span>
+</fieldset>
+
+<fieldset>
+    <legend>Ejemplo 4</legend>
+    <input type="button" id="buttonEjemplo4" value="Ejecutar ejemplo 4">
+    <br />
+    <span id="resultado4"></span>
+</fieldset>
