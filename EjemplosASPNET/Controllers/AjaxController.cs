@@ -49,5 +49,18 @@ namespace EjemplosASPNET.Controllers
             };
             return new JsonResult(productos);
         }
+
+        // Ejemplo de jQuery UI
+        [Produces("application/json")]
+        public async Task<IActionResult> Ejemplo5()
+        {
+            string palabras = HttpContext.Request.Query["term"].ToString();
+
+            // Conexion a DDBB
+            // Recoleccion de resultados
+            // var sugerencias = ProdDbContext.Productos.Where(p => p.Nombre.Contains(palabras)).Select(p => p.Nombre).ToListAsync();
+
+            return Ok(); // Ok(sugerencias); // Retorna un JSON con las sugerencias
+        }
     }
 }

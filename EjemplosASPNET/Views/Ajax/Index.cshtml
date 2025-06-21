@@ -52,6 +52,9 @@
                 }
             });
         });
+        $('#buscador').autocomplete({
+            source: '/ajax/Ejemplo5'
+        });
     });
 
 </script>
@@ -88,3 +91,5 @@
     <br />
     <span id="resultado4"></span>
 </fieldset>
+
+<input type="text" id="buscador" placeholder="Buscar producto..." />
