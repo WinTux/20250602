@@ -8,5 +8,11 @@ namespace EjemplosASPNET.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Generar(string texto)
+        {
+            ViewBag.mensaje = texto;
+            return View("Index");
+        }
     }
 }
